@@ -18,7 +18,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import java.io.IOException;
 
 public class CoOccurrenceMatrixGenerator {
-    public class MatrixGeneratorMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+    public static class MatrixGeneratorMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 
 
         @Override
@@ -41,7 +41,7 @@ public class CoOccurrenceMatrixGenerator {
     }
 
 
-    public class  MatrixGeneratorReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class  MatrixGeneratorReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
         @Override
         public void reduce(Text key,Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
